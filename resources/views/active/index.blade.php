@@ -1,4 +1,4 @@
-<x-active-bootstrap title="Index">
+<x-active-bootstrap title="index">
 
   <!-- About Section -->
   <section id="about" class="about section">
