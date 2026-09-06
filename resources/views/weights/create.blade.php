@@ -1,0 +1,34 @@
+<x-weight title="เพิ่มข้อมูลน้ำหนัก - Weight Tracker">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">บันทึกน้ำหนักวันนี้</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('weights.store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="recorded_on" class="form-label">วันที่</label>
+                            <input type="date" class="form-control @error('recorded_on') is-invalid @enderror" id="recorded_on" name="recorded_on" value="{{ old('recorded_on', date('Y-m-d')) }}">
+                            @error('recorded_on')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="weight" class="form-label">น้ำหนัก (กิโลกรัม)</label>
+                            <input type="number" step="0.01" class="form-control @error('weight') is-invalid @enderror" id="weight" name="weight" value="{{ old('weight') }}" placeholder="เช่น 65.5">
+                            @error('weight')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('weights.index') }}" class="btn btn-secondary">กลับ</a>
+                            <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-weight>
