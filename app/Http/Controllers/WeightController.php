@@ -68,4 +68,3 @@ class WeightController extends Controller
         return redirect()->route('weights.index')->with('success', 'ลบข้อมูลสำเร็จ');
     }
 }
-

@@ -196,7 +196,7 @@ use App\Http\Controllers\WeightController;
 
 
 Route::get('/', function () {
-    return redirect()->route('weights.index');
+    return view('welcome');
 });
 
 Route::resource('weights', WeightController::class);
