@@ -1,6 +1,6 @@
 <x-weight title="ประวัติน้ำหนัก - Weight Tracker">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>ข้อมูลน้ำหนักของคุณ</h2>
+        <h2>ข้อมูลน้ำหนักของ {{ Auth::user()->name }}</h2>
         <a href="{{ route('weights.create') }}" class="btn btn-primary">บันทึกน้ำหนักเพิ่ม</a>
     </div>
 

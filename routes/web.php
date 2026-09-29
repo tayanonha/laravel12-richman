@@ -199,4 +199,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('weights', WeightController::class);
+Route::resource('weights', WeightController::class)->middleware('auth');
+
+Route::get('/about-me', function () {
+    return view('about-me');
+});

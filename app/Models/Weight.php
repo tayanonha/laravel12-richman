@@ -2,9 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Weight extends Model
 {
-    protected $fillable = ['weight', 'recorded_on'];
+    use HasFactory;
+
+    // ต้องมีชื่อคอลัมน์ตรงนี้ให้ครบ Laravel ถึงจะยอมเซฟลงฐานข้อมูลให้
+    protected $fillable = [
+        'user_id', 
+        'weight', 
+        'recorded_on'
+    ]; 
 }

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('weights', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->decimal('weight', 5, 2); // เก็บน้ำหนัก (เช่น 70.50)
             $table->date('recorded_on'); // วันที่บันทึก
             $table->timestamps();
