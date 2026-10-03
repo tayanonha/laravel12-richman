@@ -15,19 +15,11 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
     public function create(): View
     {
         return view('auth.register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws ValidationException
-     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -46,6 +38,14 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/about-me');
+        $source = $request->input('source');
+
+        if ($source === 'customers') {
+            return redirect()->route('customers.index');
+        } elseif ($source === 'about_me') {
+            return redirect('/about-me');
+        }
+
+        return redirect()->intended(route('dashboard', absolute: false));
     }
 }

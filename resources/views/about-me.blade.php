@@ -24,7 +24,6 @@
             border-radius: 1.5rem;
             border: 1px solid #334155;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            /* ปรับตรงนี้ครับ จาก 500px เป็น 650px เพื่อให้การ์ดกว้างขึ้น */
             max-width: 650px; 
             width: 100%;
         }
@@ -77,10 +76,11 @@
                 
                 @guest
                     <div class="d-flex gap-2">
-                        <a href="{{ route('register') }}" class="btn btn-light btn-sm rounded-pill px-3">
+                        <!-- เพิ่ม ['source' => 'about_me'] ตรงนี้ เพื่อบอกทางกลับมาหน้า About Me -->
+                        <a href="{{ route('register', ['source' => 'about_me']) }}" class="btn btn-light btn-sm rounded-pill px-3">
                             <i class="bi bi-person-plus-fill me-1"></i> Register
                         </a>
-                        <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                        <a href="{{ route('login', ['source' => 'about_me']) }}" class="btn btn-outline-light btn-sm rounded-pill px-3">
                             <i class="bi bi-box-arrow-in-right me-1"></i> Login
                         </a>
                     </div>
